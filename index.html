@@ -173,7 +173,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/blog/2022/11/02/VSCode_Prettier/" target="_blank">VSCode Prettier &amp; ESLint 自動排版</a>
+	  <a class="article-title" href="/blog/2022/11/02/VSCode_Prettier/" target="_blank">VSCode Prettier 自動排版</a>
   
     </h1>
   
@@ -195,6 +195,17 @@
 <li>在VSCode安裝以下外掛，Prettier &amp; Prettier ESLint</li>
 </ol>
 <p><img src="https://wangfly70501.github.io/blog/2022/11/02/VSCode_Prettier/PrettierESLint.webp" alt="image"></p>
+<ol start="2">
+<li>在 VSCode 設定檔新增下方的配置 ，settings.json</li>
+</ol>
+<p><code>&#123;   &#39;editor.formatOnSave&#39;: true,   &#39;prettier.singleQuote&#39;: true,    &#39;prettier.tabWidth&#39;: 2 &#125;</code></p>
+<ol start="3">
+<li>並在設定=&gt;格式化=&gt;Format On Save打勾</li>
+</ol>
+<p><img src="https://wangfly70501.github.io/blog/2022/11/02/VSCode_Prettier/PrettierESLint02.webp" alt="image"></p>
+<ol start="4">
+<li>ctrl + shift + p ， 打format ，選擇Prettier 。ctrl + s儲存就有囉!</li>
+</ol>
 
     
 
