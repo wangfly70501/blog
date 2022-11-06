@@ -6,23 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wangfly70501.github.io/blog">
-  <title>Josh程式筆記</title>
+  <title>進入Vue3+Typescript時代 | Josh程式筆記</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <!-- <meta name="keywords" content="">
-    <meta name="description" content="前端貓奴，努力紀錄所學筆記"> -->
-  
-  <meta name="description" content="前端貓奴，努力紀錄所學筆記">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Josh程式筆記">
-<meta property="og:url" content="https://wangfly70501.github.io/blog/index.html">
+  <meta name="description" content="回想今年年初，本人還在使用Vue2呢，到了4月，一位同事果斷地提出Vue3的return，又想說這啥跟改版，想說這下GG了，又得重學，幸好Vue2跟Vue3 差異不大，很快就上手了。 但一寫到Vue3的return，跟Vue2 Option API一樣很麻煩，完全沒體會到Composition API 的好處。 直到最近，公司導入Typescript，接觸到了Vue3的 script setup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="進入Vue3+Typescript時代">
+<meta property="og:url" content="https://wangfly70501.github.io/blog/2022/11/06/Vue3Typescript/index.html">
 <meta property="og:site_name" content="Josh程式筆記">
-<meta property="og:description" content="前端貓奴，努力紀錄所學筆記">
+<meta property="og:description" content="回想今年年初，本人還在使用Vue2呢，到了4月，一位同事果斷地提出Vue3的return，又想說這啥跟改版，想說這下GG了，又得重學，幸好Vue2跟Vue3 差異不大，很快就上手了。 但一寫到Vue3的return，跟Vue2 Option API一樣很麻煩，完全沒體會到Composition API 的好處。 直到最近，公司導入Typescript，接觸到了Vue3的 script setup">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://wangfly70501.github.io/blog/2022/11/06/Vue3Typescript/apids.webp">
+<meta property="article:published_time" content="2022-11-06T15:22:00.000Z">
+<meta property="article:modified_time" content="2022-11-06T15:43:39.194Z">
 <meta property="article:author" content="Josh Wang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangfly70501.github.io/blog/2022/11/06/Vue3Typescript/apids.webp">
   
     <link rel="alternative" href="/blog/atom.xml" title="Josh程式筆記" type="application/atom+xml">
   
@@ -162,19 +162,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-Vue3Typescript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Vue3Typescript" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/blog/2022/11/06/Vue3Typescript/" target="_blank">進入Vue3+Typescript時代</a>
-  
+    <h1 class="article-title" itemprop="name">
+      進入Vue3+Typescript時代
     </h1>
   
 
@@ -217,10 +212,74 @@
     
 
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://wangfly70501.github.io/blog/2022/11/06/Vue3Typescript/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2022/11/06/vue3treeorg/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vite + vue3 + typescript + vue3-tree-org建構組織圖</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -235,182 +294,33 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue3treeorg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/blog/2022/11/06/vue3treeorg/" target="_blank">vite + vue3 + typescript + vue3-tree-org建構組織圖</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/blog/2022/11/06/vue3treeorg/" class="archive-article-date">
-        <time datetime="2022-11-06T12:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-06</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>公司要導入typescript，趁此機會重構組織圖，此為練習demo。選擇此套件是因為它可以縮放、拖曳、還能插入v-slot方便更改樣式。</p>
-    
-    <a  class="article-more-a" href="/blog/2022/11/06/vue3treeorg/#more">Read more ...</a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue3 </a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">typescript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
 
-  
-    <article id="post-VSCode_Prettier" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/blog/2022/11/02/VSCode_Prettier/" target="_blank">VSCode Prettier 自動排版</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/blog/2022/11/02/VSCode_Prettier/" class="archive-article-date">
-        <time datetime="2022-11-02T13:57:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-02</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <ol>
-<li>在VSCode安裝以下外掛，Prettier  </li>
-</ol>
-    
-    <a  class="article-more-a" href="/blog/2022/11/02/VSCode_Prettier/#more">Read more ...</a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
 
 
 
 
-  
-  
+
+
+
+
 
 
           </div>
@@ -436,8 +346,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
