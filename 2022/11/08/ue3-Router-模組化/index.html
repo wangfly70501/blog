@@ -6,25 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wangfly70501.github.io/blog">
-  <title>VSCode Prettier 自動排版 | Josh程式筆記</title>
+  <title>Vue3 Router - 模組化 | Josh程式筆記</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="在VSCode安裝以下外掛，Prettier">
+  <meta name="description" content="當路由一多時，就需要將路由拆分，模組化，方便管理。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950import &amp;#123; createRouter, createWebHashHistory &amp;#125; from &amp;#x27;vue-router&amp;#x27;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VSCode Prettier 自動排版">
-<meta property="og:url" content="https://wangfly70501.github.io/blog/2022/11/02/VSCode_Prettier/index.html">
+<meta property="og:title" content="Vue3 Router - 模組化">
+<meta property="og:url" content="https://wangfly70501.github.io/blog/2022/11/08/ue3-Router-%E6%A8%A1%E7%B5%84%E5%8C%96/index.html">
 <meta property="og:site_name" content="Josh程式筆記">
-<meta property="og:description" content="在VSCode安裝以下外掛，Prettier">
+<meta property="og:description" content="當路由一多時，就需要將路由拆分，模組化，方便管理。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950import &amp;#123; createRouter, createWebHashHistory &amp;#125; from &amp;#x27;vue-router&amp;#x27;">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://wangfly70501.github.io/blog/2022/11/02/VSCode_Prettier/PrettierESLint.webp">
-<meta property="og:image" content="https://wangfly70501.github.io/blog/2022/11/02/VSCode_Prettier/PrettierESLint02.webp">
-<meta property="article:published_time" content="2022-11-02T13:57:46.000Z">
-<meta property="article:modified_time" content="2022-11-02T18:08:27.917Z">
+<meta property="article:published_time" content="2022-11-07T16:47:00.000Z">
+<meta property="article:modified_time" content="2022-11-07T17:00:41.507Z">
 <meta property="article:author" content="Josh Wang">
-<meta property="article:tag" content="VSCode">
+<meta property="article:tag" content="Vue3">
+<meta property="article:tag" content="Router">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://wangfly70501.github.io/blog/2022/11/02/VSCode_Prettier/PrettierESLint.webp">
   
     <link rel="alternative" href="/blog/atom.xml" title="Josh程式筆記" type="application/atom+xml">
   
@@ -164,22 +162,22 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-VSCode_Prettier" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ue3-Router-模組化" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      VSCode Prettier 自動排版
+      Vue3 Router - 模組化
     </h1>
   
 
 
   
   
-<a href="/blog/2022/11/02/VSCode_Prettier/" class="archive-article-date">
-        <time datetime="2022-11-02T13:57:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-02</time>
+<a href="/blog/2022/11/08/ue3-Router-%E6%A8%A1%E7%B5%84%E5%8C%96/" class="archive-article-date">
+        <time datetime="2022-11-07T16:47:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-08</time>
 </a>
 
   
@@ -188,22 +186,17 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <ol>
-<li>在VSCode安裝以下外掛，Prettier  </li>
-</ol>
-<span id="more"></span>
-<p><img src="https://wangfly70501.github.io/blog/2022/11/02/VSCode_Prettier/PrettierESLint.webp" alt="image"></p>
-<ol start="2">
-<li>在 VSCode 設定檔新增下方的配置 ，settings.json</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &#x27;editor.formatOnSave&#x27;: true,</span><br><span class="line">  &#x27;prettier.singleQuote&#x27;: true, </span><br><span class="line">  &#x27;prettier.tabWidth&#x27;: 2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <p>當路由一多時，就需要將路由拆分，模組化，方便管理。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createRouter, createWebHashHistory &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">type</span> &#123; <span class="title class_">RouteRecordRaw</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Layout</span> <span class="keyword">from</span> <span class="string">&#x27;@/layout/layout.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Modules</span></span><br><span class="line"><span class="keyword">import</span> parameterManagementRouter <span class="keyword">from</span> <span class="string">&#x27;./modules/parameterManagementRouter&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="attr">constantRoutes</span>: <span class="title class_">Array</span>&lt;<span class="title class_">RouteRecordRaw</span>&gt;  = [</span><br><span class="line">  <span class="comment">// 登入</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;@/views/login/login.vue&#x27;</span>),</span><br><span class="line">    <span class="attr">meta</span>: &#123; <span class="attr">title</span>: <span class="string">&#x27;登入&#x27;</span> , <span class="attr">hidden</span>: <span class="literal">true</span>&#125;,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;login&#x27;</span>,  </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 首頁</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/dashboard&#x27;</span>,</span><br><span class="line">    <span class="attr">redirect</span>: <span class="string">&#x27;/dashboard/index&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">Layout</span>,</span><br><span class="line">    <span class="attr">children</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">path</span>: <span class="string">&#x27;index&#x27;</span>,</span><br><span class="line">            <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;@/views/dashboard/dashboard.vue&#x27;</span>),</span><br><span class="line">            <span class="attr">meta</span>: &#123; <span class="attr">title</span>: <span class="string">&#x27;首頁&#x27;</span>, <span class="attr">icon</span>: <span class="string">&#x27;dashboard&#x27;</span>, <span class="attr">affixTag</span>: <span class="literal">true</span> , <span class="attr">hidden</span>: <span class="literal">true</span>&#125;,</span><br><span class="line">            <span class="attr">name</span>: <span class="string">&#x27;dashboard&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/:catchAll(.*)&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;@/views/errorPage/404.vue&#x27;</span>),</span><br><span class="line">    <span class="attr">meta</span>: &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;404&#x27;</span>, <span class="attr">hidden</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;404&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">];</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="attr">asyncRoutes</span>: <span class="title class_">Array</span>&lt;<span class="title class_">RouteRecordRaw</span>&gt;  = [</span><br><span class="line">  <span class="comment">// 參數管理</span></span><br><span class="line">  ...parameterManagementRouter,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="title function_">createRouter</span>(&#123;</span><br><span class="line">  <span class="attr">history</span>: <span class="title function_">createWebHashHistory</span>(),</span><br><span class="line">  <span class="attr">routes</span>:constantRoutes.<span class="title function_">concat</span>(asyncRoutes)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>並在設定=&gt;格式化=&gt;Format On Save打勾</li>
-</ol>
-<p><img src="https://wangfly70501.github.io/blog/2022/11/02/VSCode_Prettier/PrettierESLint02.webp" alt="image"></p>
-<ol start="4">
-<li>ctrl + shift + p ， 打format ，選擇Prettier 。ctrl + s儲存即可!</li>
+<ol>
+<li><p>首先先宣告constantRoutes 代表不需要判斷權限的路由，像是登入`404之類</p>
+<p> 宣告asyncRoutes 代表需要判斷權限的路由</p>
+</li>
+<li><p>import  parameterManagementRouter模組進來，<br>接下來在asyncRoutes引入建好的路由模組，參數帶入[…parameterManagementRouter]複製</p>
+</li>
+<li><p>在routes直接合併路由就形成完整的路由了</p>
+</li>
 </ol>
 
     
@@ -221,7 +214,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vue3</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Router</a>
         		</li>
       		
 		</ul>
@@ -277,7 +274,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://wangfly70501.github.io/blog/2022/11/02/VSCode_Prettier/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://wangfly70501.github.io/blog/2022/11/08/ue3-Router-%E6%A8%A1%E7%B5%84%E5%8C%96/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -292,15 +289,11 @@
 
 <nav id="article-nav">
   
-    <a href="/blog/2022/11/06/vue3treeorg/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          vite + vue3 + typescript + vue3-tree-org建構組織圖
-        
-      </div>
-    </a>
   
+    <a href="/blog/2022/11/06/Vue3Typescript/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">進入Vue3+Typescript時代</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
