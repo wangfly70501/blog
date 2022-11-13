@@ -165,6 +165,102 @@
             
 
   
+    <article id="post-ue3-自製組件雙向綁定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/blog/2022/11/13/ue3-%E8%87%AA%E8%A3%BD%E7%B5%84%E4%BB%B6%E9%9B%99%E5%90%91%E7%B6%81%E5%AE%9A/" target="_blank">Vue3 自製組件雙向綁定</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/blog/2022/11/13/ue3-%E8%87%AA%E8%A3%BD%E7%B5%84%E4%BB%B6%E9%9B%99%E5%90%91%E7%B6%81%E5%AE%9A/" class="archive-article-date">
+        <time datetime="2022-11-13T05:47:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-13</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>當有相同或類似的功能時，常常就需要製作共用組件，方便類似功能使用。共用組件好處是簡化程式碼，樣式也能統一。</p>
+<p>以下tab切換組件為例:</p>
+<p>父組件:</p>
+<p>js宣告一個tabName變數，TabTool是自製組件(子組件),v-model綁定tabName作為雙向綁定，只要傳tabList進子組件即自動渲染。再用component :is 特性做組件的切換。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup lang=<span class="string">&quot;ts&quot;</span>&gt;</span><br><span class="line"><span class="keyword">import</span> &#123; ref, markRaw, defineAsyncComponent &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">TabTool</span> <span class="keyword">from</span> <span class="string">&#x27;@/components/TabTool/TabTool.vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> type &#123; <span class="title class_">ListType</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/type/tabTool&#x27;</span>;</span><br><span class="line">	<span class="keyword">const</span> tabList = ref&lt;<span class="title class_">ListType</span>[]&gt;([</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">name</span>: <span class="string">&#x27;公司基本資料&#x27;</span>,</span><br><span class="line">          <span class="attr">component</span>: <span class="title function_">markRaw</span>(<span class="title function_">defineAsyncComponent</span>(()<span class="title function_">import</span>(<span class="string">&#x27;./components/BasicCompanyInformation.vue&#x27;</span>))), <span class="comment">// 這邊組件import 必須寫markRaw(defineAsyncComponent())不然會有vue warn</span></span><br><span class="line">          <span class="attr">active</span>: <span class="literal">true</span> <span class="comment">// 作為預設tab</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">name</span>: <span class="string">&#x27;職位等級&#x27;</span>,</span><br><span class="line">          <span class="attr">component</span>: <span class="string">&#x27;level&#x27;</span></span><br><span class="line">  		&#125;</span><br><span class="line">      ]);</span><br><span class="line">	<span class="keyword">const</span> tabName = ref&lt;string&gt;();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">TabTool</span> <span class="attr">:tabList</span>=<span class="string">&quot;tabList&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;tabName&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">TabTool</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">&quot;tabName&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>子組件:<br>使用props跟emit作為組件value綁定，vue3+ts寫法如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup lang=<span class="string">&quot;ts&quot;</span>&gt;</span><br><span class="line"><span class="keyword">import</span> type &#123; <span class="title class_">ListType</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@/type/tabTool&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; onMounted &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> props = defineProps&lt;&#123;</span><br><span class="line">  <span class="attr">tabList</span>: <span class="title class_">ListType</span>[];</span><br><span class="line">  <span class="attr">modelValue</span>: any;</span><br><span class="line">&#125;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> emit = defineEmits&lt;&#123;</span><br><span class="line">  (<span class="attr">e</span>: <span class="string">&#x27;update:modelValue&#x27;</span>, <span class="attr">modelValue</span>: any): <span class="keyword">void</span>;</span><br><span class="line">&#125;&gt;();</span><br><span class="line"><span class="title function_">onMounted</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  props.<span class="property">tabList</span>.<span class="title function_">forEach</span>(<span class="function">(<span class="params">i, index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (i.<span class="property">active</span>) &#123;</span><br><span class="line">      <span class="title function_">setType</span>(i, index);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 一開始渲染時，即forEach active選項，有的才帶入setType</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">setType</span> = (<span class="params">val: any, key: number</span>) =&gt; &#123;</span><br><span class="line">  <span class="title function_">emit</span>(<span class="string">&#x27;update:modelValue&#x27;</span>, val.<span class="property">component</span>);</span><br><span class="line">  props.<span class="property">tabList</span>.<span class="title function_">forEach</span>(<span class="function"><span class="params">i</span> =&gt;</span> &#123;</span><br><span class="line">    i.<span class="property">active</span> = <span class="literal">false</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">// eslint-disable-next-line vue/no-mutating-props</span></span><br><span class="line">  props.<span class="property">tabList</span>[key].<span class="property">active</span> = <span class="literal">true</span>; </span><br><span class="line">  <span class="comment">// 藉由active = true; 給畫面作為切換顏色的表現</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// emit(&#x27;update:modelValue&#x27;, val.component); 為組件預設value，跟v-model相呼應</span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;button_group&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-for</span>=<span class="string">&quot;(item, key) in tabList&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">&quot;preset&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:class</span>=<span class="string">&quot;item.active ? &#x27;active&#x27; : &#x27;&#x27;&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:key</span>=<span class="string">&quot;key&quot;</span></span></span><br><span class="line"><span class="tag">      @<span class="attr">click</span>=<span class="string">&quot;setType(item, key)&quot;</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      &#123;&#123; item.name &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>:class=”item.active ? ‘active’ : ‘’”active = true; 給畫面作為切換顏色的表現</p>
+<p> 大概就是這樣，即可省下許多程式碼。方便其他功能也能使用。</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue3 </a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">typescript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ue3-Router-模組化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
